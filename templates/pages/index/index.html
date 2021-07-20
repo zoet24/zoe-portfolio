@@ -1,6 +1,28 @@
 {% set active_page = 'index' %}
 {% extends "pages/base/base.html" %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
 {% block content %}
-    <div>Hi!</div>
+<section class="section-container-fullscreen">
+    <div class="index-container-content">
+        <div class="index-container-column index-container-column-1">
+            <div>
+                <h1>Hello, I'm a heading!</h1>
+            </div>
+            <div>
+                <p>And I'm an extra lil' bit of description</p>
+            </div>
+            <div class="index-container-column-1-buttons">
+                <div class="button button-md">Projects</div>
+                <div class="button button-md">Contact</div>
+            </div>
+        </div>
+        <div class="index-container-column index-container-column-2">
+            <div class="index-container-column-2-animation">Animation</div>
+        </div>
+    </div>
+</section>
 {% endblock %}
