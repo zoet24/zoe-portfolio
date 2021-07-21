@@ -58,3 +58,7 @@ body {
 .mr-1 {
     margin-right: 0.5rem!important;
 }
+
+a {
+    text-decoration: none;
+}
