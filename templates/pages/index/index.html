@@ -11,17 +11,18 @@
     <div class="index-container-content">
         <h1 class="index-h1">Hi, I'm Zoe!</h1>
         <div class="index-container-h2s">
-            <div class="index-container-scroll-outer mr-1">
-                <div class="index-container-scroll index-animation" id="index-container-scroll">
+            <div class="index-container-scroll-outer mr-1" id="index-container-scroll-outer">
+                <div class="index-container-scroll" id="index-container-scroll">
                     <h2 class="index-h2 index-h2-scroll">Fullstack</h2>
-                    <h2 class="index-h2 index-h2-scroll">Django</h2>
-                    <h2 class="index-h2 index-h2-scroll">MongoDB</h2>
-                    <h2 class="index-h2 index-h2-scroll">Wordpress</h2>
-                    <h2 class="index-h2 index-h2-scroll">PHP</h2>
-                    <h2 class="index-h2 index-h2-scroll">Python</h2>
-                    <h2 class="index-h2 index-h2-scroll">JavaScript</h2>
-                    <h2 class="index-h2 index-h2-scroll">CSS</h2>
                     <h2 class="index-h2 index-h2-scroll">HTML</h2>
+                    <h2 class="index-h2 index-h2-scroll">CSS</h2>
+                    <h2 class="index-h2 index-h2-scroll">JavaScript</h2>
+                    <h2 class="index-h2 index-h2-scroll">Python</h2>
+                    <h2 class="index-h2 index-h2-scroll">PHP</h2>
+                    <h2 class="index-h2 index-h2-scroll">Wordpress</h2>
+                    <h2 class="index-h2 index-h2-scroll">MongoDB</h2>
+                    <h2 class="index-h2 index-h2-scroll">Django</h2>
+                    <h2 class="index-h2 index-h2-short index-h2-scroll">Fullstack</h2>
                 </div>
             </div>
             <div class="index-container-nonscroll ml-1">
@@ -29,7 +30,7 @@
             </div>
         </div>
         <div class="index-container-buttons">
-            <a href="">
+            <a href="" onclick="">
                 <div class="button button-md button-clear">Portfolio</div>
             </a>
             <a href="">
@@ -38,4 +39,26 @@
         </div>
     </div>
 </section>
+
+<script>
+    let scrollBox = document.getElementById("index-container-scroll-outer");
+    let scrollElements = document.getElementsByClassName("index-h2-scroll").length;
+
+    $("#index-container-scroll-outer").hover(
+        function() {
+            for (i = 0; i <= scrollElements; i++) {
+                setTimeout(function() {
+                    scrollDown()
+                }, 500 * i)
+            }
+        }
+    );
+
+    function scrollDown() {
+        scrollBox.scrollBy({
+            top: 100,
+            behavior: "smooth"
+        })
+    }
+</script>
 {% endblock %}
