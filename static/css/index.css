@@ -46,7 +46,7 @@
 .index-container-h2s {
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 100%;
 }
 
  .index-container-scroll-outer {

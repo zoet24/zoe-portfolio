@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="index-container-buttons">
-            <a href="" onclick="">
+            <a href="">
                 <div class="button button-md button-clear">Portfolio</div>
             </a>
             <a href="">
@@ -43,20 +43,41 @@
 <script>
     let scrollBox = document.getElementById("index-container-scroll-outer");
     let scrollElements = document.getElementsByClassName("index-h2-scroll").length;
+    let hoverOn = false;
+    let i = 0;
+    let timer = 500;
 
     $("#index-container-scroll-outer").hover(
-        function() {
-            for (i = 0; i <= scrollElements; i++) {
-                setTimeout(function() {
-                    scrollDown()
-                }, 500 * i)
-            }
+        function scrollLoop() {
+            hoverOn = true;
+            setTimeout(function() {
+                scrollDown();
+                i++;
+                if ((i < scrollElements) && (hoverOn == true)) {
+                    scrollLoop();
+                }
+            }, timer)
+        }, function() {
+            hoverOn = false
+            i = 0;
+            setTimeout(function() {
+                scrollUp()
+            }, timer)
         }
     );
 
     function scrollDown() {
         scrollBox.scrollBy({
             top: 100,
+            left: 0,
+            behavior: "smooth"
+        })
+    }
+
+    function scrollUp() {
+        scrollBox.scrollTo({
+            top: 0,
+            left: 0,
             behavior: "smooth"
         })
     }
