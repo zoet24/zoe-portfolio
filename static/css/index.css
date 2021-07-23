@@ -1,33 +1,3 @@
-.index-container-fullscreen {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-
-    box-sizing: border-box;
-    overflow: hidden;
-    
-    margin: 0;
-    padding: 0;
-}
-
-.index-bg-image {
-    width: 100vw;
-    height: 100vh;
-
-    position: relative;
-
-    background-image: url("/static/images/cool-background.png");
-    background-size: cover;
-    background-position: bottom left;
-
-    animation: background-move 10s infinite linear;
-}
-
-@keyframes background-move {
-    50% {background-position: top right;}
-  }
-
 .index-container-content {
     width: 100%;
     height: 100%;

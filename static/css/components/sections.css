@@ -5,12 +5,25 @@
     flex-direction: column;
 
     box-sizing: border-box;
+    overflow: hidden;
     
-    margin: 0 auto;
-    padding: 0 5vw;
+    margin: 0;
+    padding: 0;
+}
 
+.bg-image {
     width: 100vw;
     height: 100vh;
 
-    border: black solid 2px;
+    position: relative;
+
+    background-image: url("/static/images/cool-background.png");
+    background-size: cover;
+    background-position: bottom left;
+
+    animation: background-move 10s infinite linear;
 }
+
+@keyframes background-move {
+    50% {background-position: top right;}
+    }

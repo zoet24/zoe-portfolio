@@ -9,6 +9,7 @@
       {% block core_css %}
       <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='css/components/buttons.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/components/sidebar.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='css/components/sections.css') }}">
       {% endblock %}
 
@@ -25,6 +26,8 @@
    </head>  
    
    <body>
+      {% include 'pages/base/includes/sidebar.html' %}
+
       {% block content %}
       {% endblock %}
    </body>

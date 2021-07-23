@@ -1,0 +1,12 @@
+{% set active_page = 'projects_all' %}
+{% extends "pages/base/base.html" %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/projects_all.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="section-container-fullscreen">
+        <div class="bg-image"></div>
+    </div>
+{% endblock %}

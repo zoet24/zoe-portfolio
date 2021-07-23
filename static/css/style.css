@@ -37,15 +37,13 @@
 }
 
 :root {
-    /* Font weights */
-    --thin-font: 300;
-    --normal-font: 400;
-    --thick-font: 500;
+    /* Font sizes */
+    --font-size-normal: 30px;
 }
 
 body {
     font-family: 'coolveticaregular', sans-serif;
-    font-size: 20px;
+    font-size: var(--font-size-normal);
 
     margin: 0;
     padding: 0;
