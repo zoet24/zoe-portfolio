@@ -39,6 +39,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    transition-timing-function: ease-in-out;
 }
 
 .sidebar-nav {

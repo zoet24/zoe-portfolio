@@ -16,11 +16,6 @@
       {% block extra_css %}
       {% endblock %}
 
-      {% block core_js %}
-         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-      {% endblock %}
-
       {% block extra_js %}
       {% endblock %}
    </head>  
@@ -29,6 +24,13 @@
       {% include 'pages/base/includes/sidebar.html' %}
 
       {% block content %}
+      {% endblock %}
+
+      {% block core_js %}
+         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+
+         <script src="{{ url_for('static', filename='js/js_sidebarControls.js') }}"></script>
       {% endblock %}
    </body>
 </html>
