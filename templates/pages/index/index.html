@@ -44,25 +44,30 @@
     let scrollBox = document.getElementById("index-container-scroll-outer");
     let scrollElements = document.getElementsByClassName("index-h2-scroll").length;
     let hoverOn = false;
+    let hoverTimer;
+    let hoverTimerDelay = 500;
     let i = 0;
-    let timer = 500;
+    let scrollDelay = 0;
 
     $("#index-container-scroll-outer").hover(
         function scrollLoop() {
             hoverOn = true;
-            setTimeout(function() {
-                scrollDown();
-                i++;
-                if ((i < scrollElements) && (hoverOn == true)) {
-                    scrollLoop();
-                }
-            }, timer)
+            hoverTimer = setTimeout(function() {
+                setTimeout(function() {
+                    scrollDown();
+                    i++;
+                    if ((i < scrollElements) && (hoverOn == true)) {
+                        scrollLoop();
+                    }
+                }, scrollDelay)
+            }, hoverTimerDelay);
         }, function() {
             hoverOn = false
+            clearTimeout(hoverTimer)
             i = 0;
             setTimeout(function() {
                 scrollUp()
-            }, timer)
+            }, scrollDelay)
         }
     );
 
