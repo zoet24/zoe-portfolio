@@ -30,61 +30,12 @@
             </div>
         </div>
         <div class="index-container-buttons">
-            <a href="">
-                <div class="button button-md button-clear">Portfolio</div>
-            </a>
-            <a href="">
-                <div class="button button-md button-clear">Contact</div>
-            </a>
+            <div class="button button-md button-clear" data-link="projects" onclick="scrollRedirect(this)">Portfolio</div>
+            <div class="button button-md button-clear" data-link="contact" onclick="scrollRedirect(this)">Contact</div>
         </div>
     </div>
 </section>
 
-<script>
-    let scrollBox = document.getElementById("index-container-scroll-outer");
-    let scrollElements = document.getElementsByClassName("index-h2-scroll").length;
-    let hoverOn = false;
-    let hoverTimer;
-    let hoverTimerDelay = 500;
-    let i = 0;
-    let scrollDelay = 0;
+{% include 'pages/index/includes/js_index_scrollEffects.html' %}
 
-    $("#index-container-scroll-outer").hover(
-        function scrollLoop() {
-            hoverOn = true;
-            hoverTimer = setTimeout(function() {
-                setTimeout(function() {
-                    scrollDown();
-                    i++;
-                    if ((i < scrollElements) && (hoverOn == true)) {
-                        scrollLoop();
-                    }
-                }, scrollDelay)
-            }, hoverTimerDelay);
-        }, function() {
-            hoverOn = false
-            clearTimeout(hoverTimer)
-            i = 0;
-            setTimeout(function() {
-                scrollUp()
-            }, scrollDelay)
-        }
-    );
-
-    function scrollDown() {
-        scrollBox.scrollBy({
-            top: 100,
-            left: 0,
-            behavior: "smooth"
-        })
-    }
-
-    function scrollUp() {
-        scrollBox.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth"
-        })
-    }
-</script>
 {% endblock %}
