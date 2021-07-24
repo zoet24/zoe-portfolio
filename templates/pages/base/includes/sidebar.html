@@ -1,20 +1,49 @@
 <div class="sidebar" id="sidebar">
     <div class="sidebar-content">
         <div class="sidebar-toggle" onclick="sidebarToggle()">
-            <span>></span>
+            <i class="fas fa-play" id="sidebar-toggle-arrow"></i>
         </div>
         <!-- Zoe, contact details -->
+        <a href="{{ url_for('index') }}">
+            <h2 class="sidebar-h2">Zoe Thexton</h2>
+        </a>
         <!-- Portfolio -->
         <ul class="sidebar-nav">
             <li>Portfolio</li>
                 <ul>
+                    <li class="text-link">
+                        <div class="text-link-underline"></div>
+                        <a href="">Furve Cleaver</a>
+                    </li>
+                    <li>Crockpot</li>
                     <li>OB Covers</li>
                     <li>Presidential Debate</li>
-                    <li>Furve Cleaver</li>
+                    <li>Kind Soul Yoga</li>
+                    <li>Portfolio - Izi</li>
                 </ul>
             <li>Contact</li>
         </ul>
         <!-- Contact link -->
         <!-- Icons, ZT 2021 -->
+        <div class="sidebar-icons">
+            <a href="https://github.com/zoet24" target="_blank" class="icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/zoe-thexton/" target="_blank" class="icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+     $(".text-link").hover(
+         function() {
+         var linkWidth = ($(this).width() + 10);
+         $(".text-link-underline").width(linkWidth)
+     }, function() {
+        $(".text-link-underline").width(0)
+     });
+});
+</script>

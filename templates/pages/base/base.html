@@ -7,13 +7,22 @@
       <title>Zoe Thexton | Portfolio</title>
       
       {% block core_css %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
       <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='css/components/buttons.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/components/icons.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='css/components/sidebar.css') }}">
       <link rel="stylesheet" href="{{ url_for('static', filename='css/components/sections.css') }}">
       {% endblock %}
 
       {% block extra_css %}
+      {% endblock %}
+
+      {% block core_js %}
+         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+         <script src="{{ url_for('static', filename='js/js_sidebarControls.js') }}"></script>
       {% endblock %}
 
       {% block extra_js %}
@@ -24,13 +33,6 @@
       {% include 'pages/base/includes/sidebar.html' %}
 
       {% block content %}
-      {% endblock %}
-
-      {% block core_js %}
-         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-
-         <script src="{{ url_for('static', filename='js/js_sidebarControls.js') }}"></script>
       {% endblock %}
    </body>
 </html>
