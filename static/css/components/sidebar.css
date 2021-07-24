@@ -64,8 +64,14 @@
     list-style-type: none;
 }
 
+.sidebar-nav-heading {
+    font-size: 35px;
+    color: white;
+}
+
 .sidebar-nav ul {
     list-style-type: disclosure-closed;
+    color: white;
 }
 
 .sidebar-nav ul li a {

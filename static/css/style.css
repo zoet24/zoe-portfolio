@@ -79,7 +79,6 @@ a {
     z-index: -1;
 
     height: 15px;
-    /* width: calc(100% + 10px); */
     width: 0;
     transition: .5s ease-out;
 }
