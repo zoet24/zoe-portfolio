@@ -27,7 +27,7 @@ def index():
 @app.route("/portfolio")
 def portfolio():
     return render_template("pages/projects/projects_all/projects_all.html",
-                           projects=projects)
+                           projects = projects)
 
 
 @app.route("/contact")
