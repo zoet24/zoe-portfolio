@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
 
@@ -15,16 +16,17 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-projs = mongo.db.projects
+projects = list(mongo.db.projects.find())
+
 
 @app.route("/")
 def index():
     return render_template("pages/index/index.html")
 
 
-@app.route("/projects")
-def projects():
-    projects = projs.find()
+@app.route("/portfolio")
+def portfolio():
+    print(projects)
     return render_template("pages/projects/projects_all/projects_all.html",
                            projects=projects)
 

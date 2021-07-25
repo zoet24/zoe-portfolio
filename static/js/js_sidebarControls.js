@@ -5,7 +5,6 @@ function sidebarToggle() {
         document.getElementById("sidebar").style.left = "-350px";
         document.getElementById("sidebar-toggle-arrow").style.transform = "rotate(0deg)";
         sidebarOpen = false;
-        console.log()
     } else if (sidebarOpen == false) {
         document.getElementById("sidebar").style.left = "0px";
         document.getElementById("sidebar-toggle-arrow").style.transform = "rotate(180deg)";

@@ -7,9 +7,11 @@
 
 {% block content %}
     <div class="section-container-fullscreen">
-        <div class="bg-image"></div>
-        {% for project in projects %}
-            {{project.project_name}}
-        {% endfor %}
+        <!-- <div class="bg-image"></div> -->
+        <div>
+            {% for project in projects %}
+                <span>{{ project.project_name }}</span>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
