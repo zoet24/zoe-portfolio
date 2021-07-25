@@ -62,8 +62,8 @@
     $(document).ready(function() {
      $(".text-link").hover(
          function() {
-         var linkWidth = ($(this).width() + 10);
-         $(".text-link-underline").width(linkWidth)
+         var linkWidth = ($(this).width() + 6);
+         $(this).find(".text-link-underline").width(linkWidth)
      }, function() {
         $(".text-link-underline").width(0)
      });

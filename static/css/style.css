@@ -41,7 +41,7 @@
     --font-size-normal: 30px;
 
     /* Colours */
-    --colour-blue: #023e8a;
+    --colour-blue: #57cc99;
 }
 
 body {
@@ -73,12 +73,12 @@ a {
     display: inline-block;
     position: absolute;
     bottom: 0;
-    left: -5px;
+    left: -3px;
 
-    background:#f66;
+    background:#57cc99;
     z-index: -1;
 
-    height: 15px;
+    height: 12px;
     width: 0;
     transition: .5s ease-out;
 }
