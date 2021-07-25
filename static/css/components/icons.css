@@ -15,7 +15,19 @@
     transition: all 0.5s ease-in-out;
 }
 
+.icon-sm {
+    height: 40px;
+    width: 40px;
+
+    font-size: 27px;
+    margin: 0px;
+}
+
 .icon:hover {
     text-decoration: none;
     transform: scale(1.1);
+}
+
+.icon-no-zoom:hover {
+    transform: none;
 }

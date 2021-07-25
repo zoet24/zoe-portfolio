@@ -1,11 +1,44 @@
+.border-black {
+    border: black solid 2px;
+}
+
 .project-tile-container {
     border: black 4px solid;
+    border-radius: 25px;
 
     margin: 10px;
 
     width: 300px;
+    height: 300px;
+
+    position: relative;
+
+    transition: all 0.5s ease-in-out;
+}
+
+.project-tile-container:hover {
+    transform: scale(1.025);
 }
 
 .project-tile {
-    padding-top: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+.project-tile-title, .project-tile-description {
+    margin: 0;
+    text-align: center;
+}
+
+.project-tile-description {
+    margin: 10px;
 }

@@ -16,13 +16,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    flex-direction: column;
+    flex-direction: row;
 
     box-sizing: border-box;
     overflow: hidden;
     
-    margin: 0;
-    padding: 100px;
+    margin: 10px 0px;
+    padding: 0px 100px;
 }
 
 .section-bg-screen {

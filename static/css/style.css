@@ -69,12 +69,12 @@ a {
     text-decoration: none;
 }
 
-.text-link {
+.text-link, .project-tile-text-link {
     position: relative;
     width: fit-content;
 }
 
-.text-link-underline {
+.text-link-underline, .project-tile-link-underline {
     display: inline-block;
     position: absolute;
     bottom: 0;

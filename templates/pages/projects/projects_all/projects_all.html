@@ -6,11 +6,47 @@
 {% endblock %}
 
 {% block content %}
-    <section class="section-container-padding">
+    <!-- <section class="section-container-padding border-black">
+        <div>Search bar</div>
+        <div>Categories</div>
+        <div>Language icons</div>
+    </section> -->
+    <section class="section-container-padding border-black">
+        {% for project in projects %}
         <div class="project-tile-container">
-            <div class="project-tile"></div>
+            <div class="project-tile">
+                <div class="project-tile-text-link">
+                    <div class="project-tile-link-underline"></div>
+                    <h3 class="project-tile-title">{{ project.project_name }}</h3>
+                </div>
+                <h4 class="project-tile-description">description description description</h4>
+                <div class="project-tile-icons">
+                    <div class="icon icon-no-zoom icon-sm">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="icon icon-no-zoom icon-sm">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="icon icon-no-zoom icon-sm">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="project-tile-container"></div>
-        <div class="project-tile-container"></div>
+        {% endfor %}
     </section>
+
+    <script>
+        $(document).ready(function() {
+         $(".project-tile-container").hover(
+             function() {
+                var projectTitle = $(this).find(".project-tile-title")
+                var titleWidth = (projectTitle.width() + 6);
+
+                $(this).find(".project-tile-link-underline").width(titleWidth)
+            }, function() {
+                $(".project-tile-link-underline").width(0)
+            });
+    });
+    </script>
 {% endblock %}
