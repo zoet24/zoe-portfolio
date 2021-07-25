@@ -1,13 +1,14 @@
-let sidebarOpen = true;
+let sidebarOpen = false;
 
 function sidebarToggle() {
     if (sidebarOpen == true) {
-        document.getElementById("sidebar").style.left = "-400px";
-        document.getElementById("sidebar-toggle-arrow").style.transform = "rotate(180deg)";
+        document.getElementById("sidebar").style.left = "-350px";
+        document.getElementById("sidebar-toggle-arrow").style.transform = "rotate(0deg)";
         sidebarOpen = false;
+        console.log()
     } else if (sidebarOpen == false) {
         document.getElementById("sidebar").style.left = "0px";
-        document.getElementById("sidebar-toggle-arrow").style.transform = "rotate(0deg)";
+        document.getElementById("sidebar-toggle-arrow").style.transform = "rotate(180deg)";
         sidebarOpen = true;
     }
 }

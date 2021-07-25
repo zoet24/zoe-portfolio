@@ -41,7 +41,12 @@
     --font-size-normal: 30px;
 
     /* Colours */
-    --colour-blue: #57cc99;
+    --colour-lightgreen: #D9FFD6;
+    --colour-mint: #ABFFDE;
+    --colour-turquoise: #40E0D0;
+    --colour-blue: #137AFC;
+    --colour-purple: #5A00A5;
+    --colour-darkpurple: #400038;
 }
 
 body {
@@ -75,7 +80,7 @@ a {
     bottom: 0;
     left: -3px;
 
-    background:#57cc99;
+    background: var(--colour-turquoise);
     z-index: -1;
 
     height: 12px;
