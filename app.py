@@ -26,7 +26,6 @@ def index():
 
 @app.route("/portfolio")
 def portfolio():
-    print(projects)
     return render_template("pages/projects/projects_all/projects_all.html",
                            projects=projects)
 

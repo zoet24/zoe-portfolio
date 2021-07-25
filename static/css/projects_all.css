@@ -1,0 +1,11 @@
+.project-tile-container {
+    border: black 4px solid;
+
+    margin: 10px;
+
+    width: 300px;
+}
+
+.project-tile {
+    padding-top: 100%;
+}

@@ -1,18 +1,3 @@
-.index-container-content {
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-
-    mix-blend-mode: screen;
-    background-color: white;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .index-container-h2s {
     display: flex;
     flex-direction: row;
