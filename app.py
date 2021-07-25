@@ -9,8 +9,13 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+mongo = PyMongo(app)
+
+projs = mongo.db.projects
 
 @app.route("/")
 def index():
@@ -19,7 +24,9 @@ def index():
 
 @app.route("/projects")
 def projects():
-    return render_template("pages/projects/projects_all/projects_all.html")
+    projects = projs.find()
+    return render_template("pages/projects/projects_all/projects_all.html",
+                           projects=projects)
 
 
 @app.route("/contact")

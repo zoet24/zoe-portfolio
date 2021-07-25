@@ -8,5 +8,8 @@
 {% block content %}
     <div class="section-container-fullscreen">
         <div class="bg-image"></div>
+        {% for project in projects %}
+            {{project.project_name}}
+        {% endfor %}
     </div>
 {% endblock %}
