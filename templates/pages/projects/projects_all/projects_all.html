@@ -13,7 +13,7 @@
     </section> -->
     <section class="section-container-padding border-black">
         {% for project in projects %}
-        <div class="project-tile-container">
+        <a href="{{ url_for( 'portfolio_project', project_url_slug=project.url_slug) }}" class="project-tile-container">
             <div class="project-tile">
                 <div class="project-tile-text-link">
                     <div class="project-tile-link-underline"></div>
@@ -21,7 +21,10 @@
                 </div>
                 <h4 class="project-tile-description">{{ project.description_short }}</h4>
                 <div class="project-tile-icons">
-                    <div class="icon icon-no-zoom icon-sm">
+                    {% for language in project.languages %}
+                        {{language}}
+                    {% endfor %}
+                    <!-- <div class="icon icon-no-zoom icon-sm">
                         <i class="fab fa-html5"></i>
                     </div>
                     <div class="icon icon-no-zoom icon-sm">
@@ -31,11 +34,11 @@
                         <i class="fab fa-js"></i>
                     </div>
                     <div class="icon icon-no-zoom icon-sm">
-                        <i class="fab fa-python"></i>
+                        <i class="fab fa-python"></i> -->
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
         {% endfor %}
     </section>
 

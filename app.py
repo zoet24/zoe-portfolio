@@ -16,7 +16,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-projects = list(mongo.db.projects.find())
+projects = mongo.db.projects
 
 
 @app.route("/")
@@ -26,8 +26,18 @@ def index():
 
 @app.route("/portfolio")
 def portfolio():
+    projects_all = list(projects.find())
     return render_template("pages/projects/projects_all/projects_all.html",
-                           projects = projects)
+                           projects = projects_all)
+
+
+@app.route("/portfolio/<project_url_slug>")
+def portfolio_project(project_url_slug):
+    project = projects.find_one({"url_slug": project_url_slug})
+    print(project_url_slug)
+
+    return render_template("pages/projects/projects_single/projects_single.html",
+                           project = project)
 
 
 @app.route("/contact")
