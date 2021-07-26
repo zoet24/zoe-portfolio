@@ -14,14 +14,9 @@
             <div class="index-container-scroll-outer mr-1" id="index-container-scroll-outer">
                 <div class="index-container-scroll" id="index-container-scroll">
                     <h2 class="index-h2 index-h2-scroll">Fullstack</h2>
-                    <h2 class="index-h2 index-h2-scroll">HTML</h2>
-                    <h2 class="index-h2 index-h2-scroll">CSS</h2>
-                    <h2 class="index-h2 index-h2-scroll">JavaScript</h2>
-                    <h2 class="index-h2 index-h2-scroll">Python</h2>
-                    <h2 class="index-h2 index-h2-scroll">PHP</h2>
-                    <h2 class="index-h2 index-h2-scroll">Wordpress</h2>
-                    <h2 class="index-h2 index-h2-scroll">MongoDB</h2>
-                    <h2 class="index-h2 index-h2-scroll">Django</h2>
+                    {% for language in languages %}
+                    <h2 class="index-h2 index-h2-scroll">{{ language.language }}</h2>
+                    {% endfor %}
                     <h2 class="index-h2 index-h2-short index-h2-scroll">Fullstack</h2>
                 </div>
             </div>

@@ -16,6 +16,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+keywords = mongo.db.keywords
+keywords_all = list(keywords.find())
+languages = mongo.db.languages
+languages_all = list(languages.find())
 projects = mongo.db.projects
 projects_all = list(projects.find())
 
@@ -23,12 +27,15 @@ projects_all = list(projects.find())
 @app.route("/")
 def index():
     return render_template("pages/index/index.html",
+                           languages = languages_all,
                            projects = projects_all)
 
 
 @app.route("/portfolio")
 def portfolio():
     return render_template("pages/projects/projects_all/projects_all.html",
+                           keywords = keywords_all,
+                           languages = languages_all,
                            projects = projects_all)
 
 
@@ -39,6 +46,19 @@ def portfolio_project(project_url_slug):
     return render_template("pages/projects/projects_single/projects_single.html",
                            projects = projects_all,
                            project = project)
+
+
+@app.route("/portfolio_search", methods=["GET", "POST"])
+def portfolio_search():
+    query = request.form.get("query")
+    projects_search = list(projects.find({"$text": {"$search": f"\"{query}\""}}))
+    print(query)
+    print(projects_search)
+
+    return render_template("pages/projects/projects_all/projects_all.html",
+                           keywords = keywords_all,
+                           languages = languages_all,
+                           projects = projects_search)
 
 
 @app.route("/contact")

@@ -6,11 +6,23 @@
 {% endblock %}
 
 {% block content %}
-    <!-- <section class="section-container-padding border-black">
-        <div>Search bar</div>
-        <div>Categories</div>
-        <div>Language icons</div>
-    </section> -->
+    <section class="section-container-padding border-black">
+        <form action="{{ url_for('portfolio_search') }}" method="POST">
+            <input type="text" name="query" id="query" placeholder="What are you looking for?">
+            <label for="query" class="hide">Search portfolio</label>
+            <button type="submit">Search</button>
+        </form>
+        <div>
+            {% for keyword in keywords %}
+                {{keyword.keyword}}
+            {% endfor %}
+        </div>
+        <div>
+            {% for language in languages %}
+                {{language.language}}
+            {% endfor %}
+        </div>
+    </section>
     <section class="section-container-padding border-black">
         {% for project in projects %}
         <a href="{{ url_for( 'portfolio_project', project_url_slug=project.url_slug) }}" class="project-tile-container">

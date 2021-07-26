@@ -91,3 +91,7 @@ a {
 .text-link-underline-active, .project-page-link-underline {
     width: calc(100% + 6px);
 }
+
+.hide {
+    display: none;
+}
