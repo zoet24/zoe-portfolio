@@ -34,7 +34,6 @@ def portfolio():
 @app.route("/portfolio/<project_url_slug>")
 def portfolio_project(project_url_slug):
     project = projects.find_one({"url_slug": project_url_slug})
-    print(project_url_slug)
 
     return render_template("pages/projects/projects_single/projects_single.html",
                            project = project)

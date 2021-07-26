@@ -12,12 +12,6 @@
     height: 300px;
 
     position: relative;
-
-    transition: all 0.5s ease-in-out;
-}
-
-.project-tile-container:hover {
-    transform: scale(1.025);
 }
 
 .project-tile {
@@ -26,6 +20,7 @@
     left: 0;
 
     height: 100%;
+    width: 100%;
 
     display: flex;
     flex-wrap: wrap;
@@ -39,6 +34,10 @@
     text-align: center;
 }
 
-.project-tile-description {
-    margin: 10px;
+.project-tile-description-container {
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    
+    transition: all 0.5s ease-in-out;
 }
