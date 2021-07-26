@@ -37,12 +37,14 @@ def portfolio_project(project_url_slug):
     project = projects.find_one({"url_slug": project_url_slug})
 
     return render_template("pages/projects/projects_single/projects_single.html",
+                           projects = projects_all,
                            project = project)
 
 
 @app.route("/contact")
 def contact():
-    return render_template("pages/contact/contact.html")
+    return render_template("pages/contact/contact.html",
+                           projects = projects_all)
 
 
 if __name__ == "__main__":

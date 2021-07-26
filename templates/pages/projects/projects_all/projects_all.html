@@ -39,8 +39,8 @@
                 $(this).find(".project-tile-link-underline").width(titleWidth)
                 $(this).find(".project-tile-description-container").height(descriptionHeight).css("margin-top", "10px")
             }, function() {
-                $(".project-tile-link-underline").width(0)
-                $(".project-tile-description-container").height(0).css("margin-top", "0px")
+                $(this).find(".project-tile-link-underline").width(0)
+                $(this).find(".project-tile-description-container").height(0).css("margin-top", "0px")
             });
     });
     </script>

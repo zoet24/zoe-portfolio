@@ -4,44 +4,26 @@
             <i class="fas fa-play" id="sidebar-toggle-arrow"></i>
         </div>
         <!-- Zoe, contact details -->
-        <h2 class="text-link sidebar-h2">
-            <div class="text-link-underline"></div>
+        <h2 class="text-link text-link-hover sidebar-h2">
+            <div class="text-link-underline" id="active-/"></div>
             <a class="sidebar-h2" href="{{ url_for('index') }}">Zoe Thexton</a>
         </h2>
         <!-- Portfolio -->
         <ul class="sidebar-nav">
-            <li class="text-link">
-                <div class="text-link-underline"></div>
-                <a class="sidebar-nav-heading" href="">Portfolio</a>
+            <li class="text-link text-link-hover">
+                <div class="text-link-underline" id="active-/portfolio"></div>
+                <a class="sidebar-nav-heading" href="{{ url_for('portfolio') }}">Portfolio</a>
             </li>
                 <ul>
-                    <li class="text-link">
-                        <div class="text-link-underline"></div>
-                        <a href="">Furve Cleaver</a>
+                    {% for project in projects %}
+                    <li class="text-link text-link-hover">
+                        <div class="text-link-underline" id="active-/portfolio/{{ project.url_slug }}"></div>
+                        <a href="{{ url_for( 'portfolio_project', project_url_slug=project.url_slug) }}">{{ project.name }}</a>
                     </li>
-                    <li class="text-link">
-                        <div class="text-link-underline"></div>
-                        <a href="">Crockpot</a>
-                    </li>
-                    <li class="text-link">
-                        <div class="text-link-underline"></div>
-                        <a href="">OB Covers</a>
-                    </li>
-                    <li class="text-link">
-                        <div class="text-link-underline"></div>
-                        <a href="">Presidential Debate</a>
-                    </li>
-                    <li class="text-link">
-                        <div class="text-link-underline"></div>
-                        <a href="">Kind Soul Yoga</a>
-                    </li>
-                    <li class="text-link">
-                        <div class="text-link-underline"></div>
-                        <a href="">Portfolio - Izi</a>
-                    </li>
+                    {% endfor %}
                 </ul>
-            <li class="text-link">
-                <div class="text-link-underline"></div>
+            <li class="text-link text-link-hover">
+                <div class="text-link-underline" id="active-/contact"></div>
                 <a class="sidebar-nav-heading" href="{{ url_for('contact') }}">Contact</a>
             </li>
         </ul>
@@ -60,12 +42,19 @@
 
 <script>
     $(document).ready(function() {
-     $(".text-link").hover(
-         function() {
-         var linkWidth = ($(this).width() + 6);
-         $(this).find(".text-link-underline").width(linkWidth)
-     }, function() {
-        $(".text-link-underline").width(0)
-     });
+        var urlPath = window.location.pathname
+        var targetLink = document.getElementById(`active-${urlPath}`)
+        var targetLinkParent = targetLink.parentNode
+        
+        targetLink.classList.add("text-link-underline-active")
+        targetLinkParent.classList.remove("text-link-hover")
+
+        $(".text-link-hover").hover(
+            function() {
+                var linkWidth = ($(this).width() + 6);
+                $(this).find(".text-link-underline").width(linkWidth)
+            }, function() {
+                $(this).find(".text-link-underline").width(0)
+        });
 });
 </script>

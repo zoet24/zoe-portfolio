@@ -69,12 +69,12 @@ a {
     text-decoration: none;
 }
 
-.text-link, .project-tile-text-link {
+.text-link, .project-tile-text-link, .project-page-text-link {
     position: relative;
     width: fit-content;
 }
 
-.text-link-underline, .project-tile-link-underline {
+.text-link-underline, .project-tile-link-underline, .project-page-link-underline {
     display: inline-block;
     position: absolute;
     bottom: 0;
@@ -86,4 +86,8 @@ a {
     height: 12px;
     width: 0;
     transition: .5s ease-out;
+}
+
+.text-link-underline-active, .project-page-link-underline {
+    width: calc(100% + 6px);
 }
