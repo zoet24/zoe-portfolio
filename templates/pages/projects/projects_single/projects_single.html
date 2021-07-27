@@ -10,6 +10,6 @@
         <div class="project-page-link-underline"></div>
         <h2 class="project-page-title">{{ project.name }}</h2>
     </div>
-    <div class="project-page-image-main"></div>
+    <img class="project-page-image-main" src="{{ url_for('static', filename='images/projects/template.png') }}" alt="">
 </section>
 {% endblock %}
