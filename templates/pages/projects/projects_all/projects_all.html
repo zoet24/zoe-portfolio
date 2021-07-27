@@ -27,6 +27,7 @@
         {% for project in projects %}
         <a href="{{ url_for( 'portfolio_project', project_url_slug=project.url_slug) }}" class="project-tile-container">
             <div class="project-tile">
+                <img class="project-tile-image" src="{{ url_for('static', filename='images/projects/template.png') }}" alt="">
                 <div class="project-tile-text-link">
                     <div class="project-tile-link-underline"></div>
                     <h3 class="project-tile-title">{{ project.name }}</h3>
