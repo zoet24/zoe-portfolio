@@ -7,27 +7,33 @@
 
 {% block content %}
     <section class="section-container-padding border-black">
-        <form action="{{ url_for('portfolio_search') }}" method="POST">
+        <form action="{{ url_for('portfolio_search') }}" method="POST" onsubmit="searchPortfolio()">
             <input type="text" name="query" id="query" placeholder="What are you looking for?">
             <label for="query" class="hide">Search portfolio</label>
             <button type="submit">Search</button>
         </form>
-        <div>
+        <ul class="checkboxes" id="checkboxes-keywords">
             {% for keyword in keywords %}
-                {{keyword.keyword}}
+            <li>
+               <input type="checkbox" id="projects_all_keyword_{{loop.index}}" value="{{keyword.keyword}}">
+               <label for="projects_all_keyword_{{loop.index}}">{{keyword.keyword}}</label>
+            </li>
             {% endfor %}
-        </div>
-        <div>
+         </ul>
+        <ul class="checkboxes" id="checkboxes-languages">
             {% for language in languages %}
-                {{language.language}}
+            <li>
+               <input type="checkbox" id="projects_all_language_{{loop.index}}" value="{{language.language}}">
+               <label for="projects_all_language_{{loop.index}}">{{language.language}}</label>
+            </li>
             {% endfor %}
-        </div>
+         </ul>
     </section>
     <section class="section-container-padding border-black">
         {% for project in projects %}
         <a href="{{ url_for( 'portfolio_project', project_url_slug=project.url_slug) }}" class="project-tile-container">
             <div class="project-tile">
-                <img class="project-tile-image" src="{{ url_for('static', filename='images/projects/ob-covers.png') }}" alt="">
+                <img class="project-tile-image" src="{{ url_for('static', filename='images/projects/ob-coverss.png') }}" alt="">
                 <div class="project-tile-text-link">
                     <div class="project-tile-link-underline"></div>
                     <h3 class="project-tile-title">{{ project.name }}</h3>
@@ -56,5 +62,32 @@
                 $(this).find(".project-tile-description-container").height(0).css("margin-top", "0px")
             });
     });
+    </script>
+
+    <script>
+        function searchPortfolio() {
+            event.preventDefault();
+
+            var query = document.getElementById('query');
+            var queryKeywords = document.getElementById('checkboxes-keywords').getElementsByTagName('input');
+            var queryLanguages = document.getElementById('checkboxes-languages').getElementsByTagName('input');
+
+            for (var i = 0; i < queryKeywords.length; ++i) {
+                if (queryKeywords[i].checked) {
+                    console.log(queryKeywords[i].value);
+                }
+            }
+
+            for (var j = 0; j < queryLanguages.length; ++j) {
+                if (queryLanguages[j].checked) {
+                    console.log(queryLanguages[j].value);
+                }
+            }
+
+            // query.value += "&";
+            // query.value += queryKeywords;
+            // query.value += "&";
+            // query.value += queryLanguages;
+        }
     </script>
 {% endblock %}

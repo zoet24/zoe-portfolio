@@ -51,9 +51,18 @@ def portfolio_project(project_url_slug):
 @app.route("/portfolio_search", methods=["GET", "POST"])
 def portfolio_search():
     query = request.form.get("query")
-    projects_search = list(projects.find({"$text": {"$search": f"\"{query}\""}}))
+    query_split = query.split('&')
+
     print(query)
-    print(projects_search)
+    print(query_split)
+    # query_search = query_split[0]
+    # query_keywords = query_split[1]
+    # query_languages = query_split[2]
+
+    # print(query_keywords)
+    # print(query_languages)
+
+    projects_search = list(projects.find({"$text": {"$search": f"\"{query}\""}}))
 
     return render_template("pages/projects/projects_all/projects_all.html",
                            keywords = keywords_all,
